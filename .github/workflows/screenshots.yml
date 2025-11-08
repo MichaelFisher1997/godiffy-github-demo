@@ -71,7 +71,7 @@ jobs:
       run: echo "Clearing cache at $(date)"
       
     - name: Upload screenshots to godiffy-gitactions
-      uses: MichaelFisher1997/godiffy-gitactions@dev
+      uses: MichaelFisher1997/godiffy-gitactions@11ca534d15dcdd648c1a7f556d63e01be8bdd728
       with:
         api_key: ${{ secrets.GODIFFY_API_KEY }}
         images_path: './screenshots'
