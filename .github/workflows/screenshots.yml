@@ -56,20 +56,13 @@ jobs:
         
     - name: Upload screenshots to godiffy-gitactions
       uses: MichaelFisher1997/godiffy-gitactions@dev
-      env:
-        INPUT_API_KEY: ${{ secrets.GODIFFY_API_KEY }}
-        INPUT_IMAGES_PATH: './screenshots'
-        INPUT_SITE_ID: 'goddify-github-demo'
-        INPUT_BRANCH: ${{ github.ref_name }}
-        INPUT_COMMIT: ${{ github.sha }}
-        INPUT_BASE_URL: ${{ github.ref == 'refs/heads/master' && 'https://goddify-github-demo-production.up.railway.app' || 'https://godiffy-gitactions-demo.up.railway.app' }}
       with:
-        api-key: ${{ secrets.GODIFFY_API_KEY }}
-        images-path: './screenshots'
-        site-id: 'goddify-github-demo'
+        api_key: ${{ secrets.GODIFFY_API_KEY }}
+        images_path: './screenshots'
+        site_id: 'goddify-github-demo'
         branch: ${{ github.ref_name }}
         commit: ${{ github.sha }}
-        base-url: ${{ github.ref == 'refs/heads/master' && 'https://goddify-github-demo-production.up.railway.app' || 'https://godiffy-gitactions-demo.up.railway.app' }}
+        base_url: ${{ github.ref == 'refs/heads/master' && 'https://goddify-github-demo-production.up.railway.app' || 'https://godiffy-gitactions-demo.up.railway.app' }}
 
         
     - name: Upload screenshots as artifacts
