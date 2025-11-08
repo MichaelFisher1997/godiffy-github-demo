@@ -7,9 +7,8 @@ WORKDIR /app
 # Copy package files first for better caching
 COPY package*.json ./
 
-# Install dependencies with cache mount for Railway
-RUN --mount=type=cache,id=s/app-/root/.npm,target=/root/.npm \
-    npm ci --only=production
+# Install dependencies
+RUN npm ci --only=production
 
 # Copy source code
 COPY . .
