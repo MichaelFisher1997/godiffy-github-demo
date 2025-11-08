@@ -67,8 +67,18 @@ jobs:
         echo "base_url: ${{ github.ref == 'refs/heads/master' && 'https://goddify-github-demo-production.up.railway.app' || 'https://godiffy-gitactions-demo.up.railway.app' }}"
         echo "=== END DEBUG ==="
         
+    - name: Force cache clear
+      run: echo "Clearing cache at $(date)"
+      
     - name: Upload screenshots to godiffy-gitactions
       uses: MichaelFisher1997/godiffy-gitactions@dev
+      with:
+        api_key: ${{ secrets.GODIFFY_API_KEY }}
+        images_path: './screenshots'
+        site_id: 'goddify-github-demo'
+        branch: ${{ github.ref_name }}
+        commit: ${{ github.sha }}
+        base_url: ${{ github.ref == 'refs/heads/master' && 'https://goddify-github-demo-production.up.railway.app' || 'https://godiffy-gitactions-demo.up.railway.app' }}
       with:
         api_key: ${{ secrets.GODIFFY_API_KEY }}
         images_path: './screenshots'
