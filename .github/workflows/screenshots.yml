@@ -90,7 +90,7 @@ jobs:
         response=$(curl -s -w "HTTP_CODE:%{http_code}" \
           -H "Authorization: Bearer $API_KEY" \
           -H "Content-Type: application/json" \
-          "$BASE_URL/api/sites/$SITE_ID")
+          "$BASE_URL/api/v2/sites/$SITE_ID")
         
         http_code=$(echo "$response" | grep -o 'HTTP_CODE:[0-9]*' | cut -d: -f2)
         body=$(echo "$response" | sed 's/HTTP_CODE:[0-9]*$//')
@@ -98,7 +98,7 @@ jobs:
         echo "API Test Response: $body"
         echo "HTTP Status: $http_code"
         
-        # Upload each screenshot
+        # Upload each screenshot using correct API v2 endpoint
         for screenshot in screenshots/*.png; do
           if [ -f "$screenshot" ]; then
             filename=$(basename "$screenshot")
@@ -107,12 +107,11 @@ jobs:
             response=$(curl -s -w "HTTP_CODE:%{http_code}" \
               -X POST \
               -H "Authorization: Bearer $API_KEY" \
-              -F "image=@$screenshot" \
-              -F "siteId=$SITE_ID" \
+              -F "file=@$screenshot" \
               -F "branch=$BRANCH" \
               -F "commit=$COMMIT" \
-              -F "name=$filename" \
-              "$BASE_URL/api/upload")
+              -F "path=/$filename" \
+              "$BASE_URL/api/v2/sites/$SITE_ID/uploads")
             
             http_code=$(echo "$response" | grep -o 'HTTP_CODE:[0-9]*' | cut -d: -f2)
             body=$(echo "$response" | sed 's/HTTP_CODE:[0-9]*$//')
