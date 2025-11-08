@@ -76,52 +76,15 @@ jobs:
         echo "INPUT_API_KEY would be: ${{ secrets.GODIFFY_API_KEY }}"
         echo "Length: $(echo '${{ secrets.GODIFFY_API_KEY }}' | wc -c)"
         
-    - name: Upload screenshots directly to godiffy API
-      run: |
-        echo "Uploading screenshots directly to API..."
-        BASE_URL="https://godiffy-backend-dev.up.railway.app"
-        API_KEY="${{ secrets.GODIFFY_API_KEY }}"
-        SITE_ID="goddify-github-demo"
-        BRANCH="${{ github.ref_name }}"
-        COMMIT="${{ github.sha }}"
-        
-        # Test API connection first
-        echo "Testing API connection to $BASE_URL"
-        curl -s -w "HTTP Status: %{http_code}\n" \
-          -H "Authorization: Bearer $API_KEY" \
-          -H "Content-Type: application/json" \
-          "$BASE_URL/api/sites/$SITE_ID" || echo "API test failed"
-        
-        # Upload each screenshot
-        for screenshot in screenshots/*.png; do
-          if [ -f "$screenshot" ]; then
-            filename=$(basename "$screenshot")
-            echo "Uploading $filename..."
-            
-            response=$(curl -s -w "HTTP_CODE:%{http_code}" \
-              -X POST \
-              -H "Authorization: Bearer $API_KEY" \
-              -F "image=@$screenshot" \
-              -F "siteId=$SITE_ID" \
-              -F "branch=$BRANCH" \
-              -F "commit=$COMMIT" \
-              -F "name=$filename" \
-              "$BASE_URL/api/upload")
-            
-            http_code=$(echo "$response" | grep -o 'HTTP_CODE:[0-9]*' | cut -d: -f2)
-            body=$(echo "$response" | sed 's/HTTP_CODE:[0-9]*$//')
-            
-            echo "Response: $body"
-            echo "HTTP Status: $http_code"
-            
-            if [ "$http_code" != "200" ] && [ "$http_code" != "201" ]; then
-              echo "❌ Failed to upload $filename (HTTP $http_code)"
-              echo "Response: $body"
-            else
-              echo "✅ Successfully uploaded $filename"
-            fi
-          fi
-        done
+    - name: Upload screenshots to godiffy-gitactions
+      uses: MichaelFisher1997/godiffy-gitactions@main
+      with:
+        api-key: ${{ secrets.GODIFFY_API_KEY }}
+        images-path: './screenshots'
+        site-id: 'goddify-github-demo'
+        branch: ${{ github.ref_name }}
+        commit: ${{ github.sha }}
+        base-url: https://godiffy-backend-dev.up.railway.app
 
         
     - name: Upload screenshots as artifacts
