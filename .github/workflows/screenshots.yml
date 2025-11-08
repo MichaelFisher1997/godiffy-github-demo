@@ -54,6 +54,21 @@ jobs:
           echo "❌ GODIFFY_API_KEY secret is missing"
         fi
         
+    - name: Debug action inputs
+      run: |
+        echo "=== DEBUGGING ACTION INPUTS ==="
+        echo "GODIFFY_API_KEY exists: ${{ secrets.GODIFFY_API_KEY != '' }}"
+        echo "Secret length: ${{ secrets.GODIFFY_API_KEY | length }}"
+        echo ""
+        echo "About to call action with:"
+        echo "api_key: [REDACTED]"
+        echo "images_path: './screenshots'"
+        echo "site_id: 'goddify-github-demo'"
+        echo "branch: ${{ github.ref_name }}"
+        echo "commit: ${{ github.sha }}"
+        echo "base_url: ${{ github.ref == 'refs/heads/master' && 'https://goddify-github-demo-production.up.railway.app' || 'https://godiffy-gitactions-demo.up.railway.app' }}"
+        echo "=== END DEBUG ==="
+        
     - name: Upload screenshots to godiffy-gitactions
       uses: MichaelFisher1997/godiffy-gitactions@dev
       with:
