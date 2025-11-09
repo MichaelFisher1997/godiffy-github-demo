@@ -19,8 +19,8 @@ jobs:
       uses: MichaelFisher1997/godiffy-gitactions@v1-nodejs
       with:
         api-key: ${{ secrets.GODIFFY_API_KEY }}
-        site-id: ${{ secrets.GODIFFY_SITE_ID }}
-        base-url: ${{ secrets.GODIFFY_BASE_URL }}
+        site-id: 9b85b790-c00e-4cfa-aed8-848617a6dd8d
+        base-url: https://godiffy-backend-dev.up.railway.app
         baseline-branch: master
         baseline-commit: latest
         create-report: false
@@ -31,8 +31,8 @@ jobs:
       uses: MichaelFisher1997/godiffy-gitactions@v1-nodejs
       with:
         api-key: ${{ secrets.GODIFFY_API_KEY }}
-        site-id: ${{ secrets.GODIFFY_SITE_ID }}
-        base-url: ${{ secrets.GODIFFY_BASE_URL }}
+        site-id: 9b85b790-c00e-4cfa-aed8-848617a6dd8d
+        base-url: https://godiffy-backend-dev.up.railway.app
         baseline-branch: master
         baseline-commit: latest
         create-report: true
