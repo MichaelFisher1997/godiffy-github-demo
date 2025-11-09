@@ -16,7 +16,7 @@ jobs:
 
     - name: Upload screenshots to GoDiffy
       id: upload
-      uses: MichaelFisher1997/godiffy-gitactions@v1-nodejs-fixed
+      uses: MichaelFisher1997/godiffy-gitactions@v1-working
       with:
         api-key: ${{ secrets.GODIFFY_API_KEY }}
         site-id: 9b85b790-c00e-4cfa-aed8-848617a6dd8d
@@ -28,7 +28,7 @@ jobs:
     - name: Run visual regression comparison
       id: compare
       if: github.event_name == 'pull_request'
-      uses: MichaelFisher1997/godiffy-gitactions@v1-nodejs-fixed
+      uses: MichaelFisher1997/godiffy-gitactions@v1-working
       with:
         api-key: ${{ secrets.GODIFFY_API_KEY }}
         site-id: 9b85b790-c00e-4cfa-aed8-848617a6dd8d
