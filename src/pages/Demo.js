@@ -33,8 +33,8 @@ const Demo = () => {
     <div className="page">
       <section className="hero">
         <div className="container">
-          <h1>Live Demo</h1>
-          <p>See ImageDiff in action - upload two images and watch the magic happen</p>
+          <h1>Live Demo 🎬</h1>
+          <p>See ImageDiff in action - upload two images and watch the magic happen instantly</p>
         </div>
       </section>
 
@@ -91,7 +91,7 @@ const Demo = () => {
                   onClick={handleCompare}
                   disabled={isComparing}
                 >
-                  {isComparing ? '🔄 Analyzing...' : '🚀 Compare Images'}
+                  {isComparing ? '🔄 Analyzing Images...' : '⚡ Compare Now'}
                 </button>
               </div>
             )}
@@ -102,7 +102,7 @@ const Demo = () => {
                 <div className="results-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '2rem', marginTop: '2rem' }}>
                   <div className="result-card" style={{ background: '#f8fafc', padding: '1.5rem', borderRadius: '10px' }}>
                     <h4>📊 Similarity Score</h4>
-                    <p style={{ fontSize: '2rem', fontWeight: 'bold', color: '#4f46e5' }}>87%</p>
+                    <p style={{ fontSize: '2rem', fontWeight: 'bold', color: '#4f46e5' }}>92%</p>
                   </div>
                   <div className="result-card" style={{ background: '#f8fafc', padding: '1.5rem', borderRadius: '10px' }}>
                     <h4>🔍 Differences Found</h4>

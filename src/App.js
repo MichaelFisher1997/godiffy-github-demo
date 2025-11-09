@@ -10,8 +10,8 @@ function Home() {
       {/* Hero Section */}
       <section className="hero">
         <div className="container">
-          <h1>Compare Images Instantly</h1>
-          <p>Powerful visual diff tool to spot differences between images with pixel-perfect accuracy</p>
+          <h1>Compare Images Instantly ⚡</h1>
+          <p>The most powerful visual diff tool to spot differences between images with pixel-perfect accuracy</p>
           <div className="hero-buttons">
             <Link to="/demo" className="btn-primary">Start Free Trial</Link>
             <Link to="/features" className="btn-secondary">Learn More</Link>
@@ -22,12 +22,12 @@ function Home() {
       {/* Features Preview */}
       <section className="features">
         <div className="container">
-          <h2>Why Choose ImageDiff?</h2>
+          <h2>Why Choose ImageDiff? 🚀</h2>
           <div className="features-grid">
             <div className="feature-card">
               <div className="feature-icon">⚡</div>
-              <h3>Lightning Fast</h3>
-              <p>Compare images in seconds with our optimized algorithms</p>
+              <h3>Lightning Fast ⚡</h3>
+              <p>Compare images in milliseconds with our optimized algorithms</p>
             </div>
             <div className="feature-card">
               <div className="feature-icon">🎯</div>

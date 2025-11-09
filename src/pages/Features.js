@@ -5,8 +5,8 @@ const Features = () => {
     <div className="page">
       <section className="hero">
         <div className="container">
-          <h1>Powerful Features</h1>
-          <p>Everything you need for professional image comparison</p>
+          <h1>Powerful Features 💪</h1>
+          <p>Everything you need for professional-grade image comparison</p>
         </div>
       </section>
 
@@ -15,8 +15,8 @@ const Features = () => {
           <div className="features-grid">
             <div className="feature-card">
               <div className="feature-icon">⚡</div>
-              <h3>Lightning Fast</h3>
-              <p>Compare images in seconds with our optimized algorithms. No more waiting around for results.</p>
+              <h3>Lightning Fast ⚡</h3>
+              <p>Compare images instantly with our optimized algorithms. No more waiting around for results.</p>
             </div>
             <div className="feature-card">
               <div className="feature-icon">🎯</div>
@@ -49,8 +49,8 @@ const Features = () => {
 
       <section className="cta-section">
         <div className="container">
-          <h2>Ready to get started?</h2>
-          <p>Join thousands of professionals who trust ImageDiff for their image comparison needs.</p>
+          <h2>Ready to get started? 🚀</h2>
+          <p>Join over 10,000 professionals who trust ImageDiff for their image comparison needs.</p>
           <a href="/demo" className="btn-primary">Try It Now</a>
         </div>
       </section>
