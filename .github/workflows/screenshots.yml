@@ -77,7 +77,7 @@ jobs:
         echo "Length: $(echo '${{ secrets.GODIFFY_API_KEY }}' | wc -c)"
         
     - name: Upload screenshots to godiffy-gitactions
-      uses: MichaelFisher1997/godiffy-gitactions@main
+      uses: MichaelFisher1997/godiffy-gitactions@dev
       with:
         api-key: ${{ secrets.GODIFFY_API_KEY }}
         images-path: './screenshots'
