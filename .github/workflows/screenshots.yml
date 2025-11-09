@@ -29,7 +29,7 @@ jobs:
 
     - name: Run visual regression comparison
       id: compare
-      if: github.event_name == 'pull_request' && steps.upload.outcome == 'success'
+      if: github.event_name == 'pull_request' && success()
       uses: MichaelFisher1997/godiffy-github-actions@dev
       with:
         api-key: ${{ secrets.GODIFFY_API_KEY }}
