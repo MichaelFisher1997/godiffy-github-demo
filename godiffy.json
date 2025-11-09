@@ -1,0 +1,30 @@
+{
+  "baseUrls": {
+    "master": "https://godiffy-github-demo-production.up.railway.app",
+    "dev": "https://godiffy-github-demo-dev.up.railway.app"
+  },
+  "pages": [
+    {
+      "path": "/",
+      "name": "home"
+    },
+    {
+      "path": "/features",
+      "name": "features"
+    },
+    {
+      "path": "/demo",
+      "name": "demo"
+    },
+    {
+      "path": "/pricing",
+      "name": "pricing"
+    }
+  ],
+  "viewport": {
+    "width": 1280,
+    "height": 720
+  },
+  "threshold": 95,
+  "algorithm": "pixelmatch"
+}
