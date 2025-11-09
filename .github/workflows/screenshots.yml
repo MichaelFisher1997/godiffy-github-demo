@@ -81,7 +81,7 @@ jobs:
       with:
         api-key: ${{ secrets.GODIFFY_API_KEY }}
         images-path: './screenshots'
-        site-id: 'goddify-github-demo'
+        site-id: 'test-site'
         branch: ${{ github.ref_name }}
         commit: ${{ github.sha }}
         base-url: https://godiffy-backend-dev.up.railway.app
