@@ -84,7 +84,7 @@ jobs:
         site-id: 'godiffy-github-demo'
         branch: ${{ github.ref_name }}
         commit: ${{ github.sha }}
-        base-url: https://goddify-github-demo-dev.up.railway.app
+        base-url: https://godiffy-github-demo-dev.up.railway.app
 
         
     - name: Upload screenshots as artifacts
