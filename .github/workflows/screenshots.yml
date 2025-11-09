@@ -23,7 +23,7 @@ jobs:
         create-report: false
 
   compare-screenshots:
-    if: github.event_name == 'pull_request'
+    if: github.event_name == 'pull_request' || github.ref != 'refs/heads/master'
     needs: upload-screenshots
     runs-on: ubuntu-latest
     permissions:
