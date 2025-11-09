@@ -16,8 +16,9 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v4
 
-    - name: Upload screenshots to GoDiffy
+    - name: Capture and upload screenshots
       id: upload
+      if: github.event_name == 'push'
       uses: MichaelFisher1997/godiffy-github-actions@dev
       with:
         api-key: ${{ secrets.GODIFFY_API_KEY }}
@@ -29,7 +30,7 @@ jobs:
 
     - name: Run visual regression comparison
       id: compare
-      if: github.event_name == 'pull_request' && success()
+      if: github.event_name == 'pull_request'
       uses: MichaelFisher1997/godiffy-github-actions@dev
       with:
         api-key: ${{ secrets.GODIFFY_API_KEY }}
