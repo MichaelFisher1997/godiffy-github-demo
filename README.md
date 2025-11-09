@@ -7,3 +7,4 @@
 # Trigger after hardened latest-baseline logic Sun  9 Nov 17:19:15 GMT 2025
 # Trigger after jq guard fix Sun  9 Nov 17:31:37 GMT 2025
 # Trigger after baseline branch filter Sun  9 Nov 17:34:40 GMT 2025
+# Trigger after non-fatal baseline handling Sun  9 Nov 17:37:47 GMT 2025
