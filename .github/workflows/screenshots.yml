@@ -2,9 +2,6 @@ name: GoDiffy Visual Regression
 
 on:
   push:
-    branches-ignore:
-      - 'main'
-      - 'master'
   pull_request:
 
 jobs:

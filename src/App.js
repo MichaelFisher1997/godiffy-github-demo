@@ -22,12 +22,12 @@ function Home() {
       {/* Features Preview */}
       <section className="features">
         <div className="container">
-          <h2>Why Choose ImageDiff? 🚀</h2>
+          <h2>Why Choose ImageDiff?</h2>
           <div className="features-grid">
             <div className="feature-card">
               <div className="feature-icon">⚡</div>
-              <h3>Lightning Fast ⚡</h3>
-              <p>Compare images in milliseconds with our optimized algorithms</p>
+              <h3>Lightning Fast</h3>
+              <p>Compare images in seconds with our optimized algorithms</p>
             </div>
             <div className="feature-card">
               <div className="feature-icon">🎯</div>
