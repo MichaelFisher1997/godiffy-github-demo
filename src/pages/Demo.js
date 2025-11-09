@@ -33,8 +33,8 @@ const Demo = () => {
     <div className="page">
       <section className="hero">
         <div className="container">
-          <h1>Live Demo</h1>
-          <p>See ImageDiff in action - upload two images and watch the magic happen</p>
+          <h1>Live Demo 🎬</h1>
+          <p>See ImageDiff in action - upload two images and watch the magic happen instantly</p>
         </div>
       </section>
 
@@ -91,7 +91,7 @@ const Demo = () => {
                   onClick={handleCompare}
                   disabled={isComparing}
                 >
-                  {isComparing ? '🔄 Analyzing...' : '🚀 Compare Images'}
+                  {isComparing ? '🔄 Analyzing Images...' : '⚡ Compare Now'}
                 </button>
               </div>
             )}

@@ -5,8 +5,8 @@ const Pricing = () => {
     <div className="page">
       <section className="hero">
         <div className="container">
-          <h1>Simple, Transparent Pricing</h1>
-          <p>Choose the plan that fits your needs</p>
+          <h1>Simple, Transparent Pricing 💳</h1>
+          <p>Choose the perfect plan that fits your needs</p>
         </div>
       </section>
 
@@ -29,8 +29,8 @@ const Pricing = () => {
             <div className="pricing-card" style={{ background: 'white', padding: '2rem', borderRadius: '10px', boxShadow: '0 5px 15px rgba(0,0,0,0.1)', border: '2px solid #4f46e5' }}>
               <div style={{ background: '#4f46e5', color: 'white', padding: '0.5rem 1rem', borderRadius: '5px', display: 'inline-block', marginBottom: '1rem' }}>Popular</div>
               <h3>Pro</h3>
-              <div className="price" style={{ fontSize: '3rem', fontWeight: 'bold', color: '#4f46e5' }}>$19</div>
-              <p style={{ color: '#666' }}>For professionals and teams</p>
+              <div className="price" style={{ fontSize: '3rem', fontWeight: 'bold', color: '#4f46e5' }}>$29</div>
+              <p style={{ color: '#666' }}>For professionals and growing teams</p>
               <ul style={{ listStyle: 'none', padding: 0, margin: '2rem 0' }}>
                 <li style={{ marginBottom: '0.5rem' }}>✓ Unlimited comparisons</li>
                 <li style={{ marginBottom: '0.5rem' }}>✓ Advanced comparison tools</li>
