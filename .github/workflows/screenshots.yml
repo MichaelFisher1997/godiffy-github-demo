@@ -18,9 +18,9 @@ jobs:
       id: upload
       uses: MichaelFisher1997/godiffy-gitactions@v1-nodejs
       with:
-        api-key: 104150d7-cc4f-4e19-9877-2681241b6f3f
-        site-id: 9b85b790-c00e-4cfa-aed8-848617a6dd8d
-        base-url: https://godiffy-backend-dev.up.railway.app
+        api-key: ${{ secrets.GODIFFY_API_KEY }}
+        site-id: ${{ secrets.GODIFFY_SITE_ID }}
+        base-url: ${{ secrets.GODIFFY_BASE_URL }}
         baseline-branch: master
         baseline-commit: latest
         create-report: false
@@ -30,9 +30,9 @@ jobs:
       if: github.event_name == 'pull_request'
       uses: MichaelFisher1997/godiffy-gitactions@v1-nodejs
       with:
-        api-key: 104150d7-cc4f-4e19-9877-2681241b6f3f
-        site-id: 9b85b790-c00e-4cfa-aed8-848617a6dd8d
-        base-url: https://godiffy-backend-dev.up.railway.app
+        api-key: ${{ secrets.GODIFFY_API_KEY }}
+        site-id: ${{ secrets.GODIFFY_SITE_ID }}
+        base-url: ${{ secrets.GODIFFY_BASE_URL }}
         baseline-branch: master
         baseline-commit: latest
         create-report: true
