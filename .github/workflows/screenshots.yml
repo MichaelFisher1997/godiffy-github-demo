@@ -34,6 +34,16 @@ jobs:
         sleep 10
         timeout 60 bash -c 'until curl -f http://localhost:3005; do sleep 2; done'
         
+    - name: Configure target URL and update Nightwatch config
+      run: |
+        TARGET_URL="${{ github.ref == 'refs/heads/master' && 'https://godiffy-github-demo-production.up.railway.app' || 'https://godiffy-github-demo-dev.up.railway.app' }}"
+        echo "TARGET_URL=$TARGET_URL"
+        echo "Taking screenshots of: $TARGET_URL"
+        
+        # Update nightwatch.json with the target URL
+        jq --arg url "$TARGET_URL" '.test_settings.default.launch_url = $url' nightwatch.json > nightwatch-temp.json
+        mv nightwatch-temp.json nightwatch.json
+        
     - name: Run screenshot tests
       run: |
         docker-compose run --rm nightwatch npm run test:e2e
@@ -84,7 +94,7 @@ jobs:
         site-id: '9b85b790-c00e-4cfa-aed8-848617a6dd8d'
         branch: ${{ github.ref_name }}
         commit: ${{ github.sha }}
-        base-url: ${{ github.ref == 'refs/heads/master' && 'https://godiffy-backend-production.up.railway.app' || 'https://godiffy-backend-dev.up.railway.app' }}
+        base-url: https://godiffy-backend-dev.up.railway.app
 
         
     - name: Upload screenshots as artifacts
