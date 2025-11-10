@@ -86,8 +86,8 @@ jobs:
             return;
           }
           
-          // Fetch latest report for this commit
-          const reportsUrl = `${baseUrl}/api/v2/sites/${siteId}/reports?candidateBranch=${branch}&candidateCommit=${commit}&limit=1`;
+          // Fetch latest reports and find one for this commit
+          const reportsUrl = `${baseUrl}/api/v2/sites/${siteId}/reports?limit=10`;
           const reportsRes = await fetch(reportsUrl, {
             headers: { 'Authorization': `Bearer ${apiKey}` }
           });
@@ -97,13 +97,16 @@ jobs:
             return;
           }
           
-          const reports = await reportsRes.json();
-          if (!reports || reports.length === 0) {
-            console.log('No reports found for this commit');
+          const data = await reportsRes.json();
+          const reports = data.reports || [];
+          
+          // Find report for this commit
+          const report = reports.find(r => r.candidateCommit === commit);
+          
+          if (!report) {
+            console.log('No report found for commit:', commit);
             return;
           }
-          
-          const report = reports[0];
           const avgSim = (report.averageSimilarity * 100).toFixed(2);
           const threshold = 95; // Read from config if needed
           const thresholdMet = report.averageSimilarity >= (threshold / 100);
